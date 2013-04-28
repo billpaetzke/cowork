@@ -1,3 +1,4 @@
+from django.core.urlresolvers import reverse
 from django.db import models
 
 class Space(models.Model):
@@ -24,6 +25,10 @@ class Space(models.Model):
     def __str__(self):
 
         return self.name
+
+    def get_absolute_url(self):
+
+        return reverse('spaces-view', kwargs={'pk': self.id})
 
 # Note: I looked into inheritance (e.g. PendingSpace inherits Space)
 #       but it seemed too complex to handle in ORM at this point

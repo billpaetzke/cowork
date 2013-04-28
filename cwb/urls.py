@@ -22,4 +22,7 @@ urlpatterns = patterns('',
 
     url(r'^new$', spaces.views.CreateSpaceView.as_view(),
         name='spaces-new'),
+
+    url(r'^(?P<pk>\d+)/$', spaces.views.SpaceView.as_view(),
+        name='spaces-view'),
 )

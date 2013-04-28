@@ -2,6 +2,6 @@
 
 <ul>
     {% for space in object_list %}
-    <li>{{ space }}</li>
+    <li><a href="{{ space.get_absolute_url }}">{{ space }}</a></li>
     {% endfor %}
 </ul>
