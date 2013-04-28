@@ -1,9 +1,12 @@
 from django.db import models
 
-class Space(model.Model):
+class Space(models.Model):
 
     name = models.CharField(
             max_length=63,
+            )
+    address = models.CharField(
+            max_length=255,
             )
     phone = models.CharField(
             max_length=31,
