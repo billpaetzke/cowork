@@ -37,5 +37,5 @@ nosetests.xml
 # Django
 *.log
 *.pot
-*.pyc
+*.db
 local_settings.py
