@@ -3,8 +3,8 @@ from django.conf.urls import patterns, include, url
 import spaces.views
 
 # Uncomment the next two lines to enable the admin:
-# from django.contrib import admin
-# admin.autodiscover()
+from django.contrib import admin
+admin.autodiscover()
 
 urlpatterns = patterns('',
     # Examples:
@@ -15,8 +15,11 @@ urlpatterns = patterns('',
     # url(r'^admin/doc/', include('django.contrib.admindocs.urls')),
 
     # Uncomment the next line to enable the admin:
-    # url(r'^admin/', include(admin.site.urls)),
+    url(r'^cwb-admin/', include(admin.site.urls)),
 
     url(r'^$', spaces.views.ListSpaceView.as_view(),
-        name='spaces-list')
+        name='spaces-list'),
+
+    url(r'^new$', spaces.views.CreateSpaceView.as_view(),
+        name='spaces-new'),
 )

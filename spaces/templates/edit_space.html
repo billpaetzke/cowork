@@ -1,0 +1,15 @@
+<h1>Tell us about a Coworking Space</h1>
+
+<p>Did we miss a space? Did a new one open?</p>
+
+<p>Just a name and city should be fine. We'll do the rest.</p>
+
+<form action="{% url "spaces-new" %}" method="POST">
+    {% csrf_token %}
+    <ul>
+        {{ form.as_ul }}
+    </ul>
+    <input type="submit" value="Submit (Thank you!)" />
+</form>
+
+<a href="{% url "spaces-list" %}">Cancel</a>
