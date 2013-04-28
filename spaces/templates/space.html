@@ -1,14 +1,49 @@
-<h1>{{ space }}</h1>
 
-<ul>
-    <li>{{ space.address }}</li>
-    {% if space.url %}
-    <li><a href="{{ space.url }}">{{ space.url }}</a></li>
-    {% endif %}
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta name="viewport" content="initial-scale=1.0, user-scalable=no" />
+    <style type="text/css">
+      #map-canvas { width: 300px; height: 300px }
+    </style>
+    <script type="text/javascript"
+        src="https://maps.googleapis.com/maps/api/js?key={{ gmaps_key }}&sensor=false">
+    </script>
+    <script type="text/javascript">
+      function initialize() {
+        var pos = new google.maps.LatLng({{ space.lat }}, {{ space.lon }});
+        var mapOptions = {
+          center: pos,
+          zoom: 16,
+          mapTypeId: google.maps.MapTypeId.ROADMAP
+        };
+        var map = new google.maps.Map(document.getElementById("map-canvas"),
+                mapOptions);
+        var marker = new google.maps.Marker({
+            position: pos,
+            map: map,
+            title: 'Coworking Space'
+        });
+      }
+      google.maps.event.addDomListener(window, 'load', initialize);
+    </script>
+  </head>
+  <body>
+      
+      <h1>{{ space }}</h1>
+
     {% if space.phone %}
-    <li>{{ space.phone }}</li>
+    Phone: {{ space.phone }}<br/>
     {% endif %}
     {% if space.email %}
-    <li><a href="mailto:{{ space.email }}">{{ space.email }}</a></li>
+    Email: <a href="mailto:{{ space.email }}">{{ space.email }}</a><br/>
     {% endif %}
-</ul>
+    {% if space.url %}
+    Site: <a href="{{ space.url }}">{{ space.url }}</a><br/>
+    {% endif %}
+
+    <p>{{ space.address }}</p>
+
+    <div id="map-canvas"/>
+  </body>
+</html>

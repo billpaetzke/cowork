@@ -21,6 +21,8 @@ class Space(models.Model):
             max_length=255,
             blank=True,
             )
+    lat = models.FloatField(default=0)
+    lon = models.FloatField(default=0)
 
     def __str__(self):
 
