@@ -1,15 +1,20 @@
+{% extends "base.html" %}
+{% block title %}Add a Space{% endblock %}
+
+{% block content %}
 <h1>Tell us about a Coworking Space</h1>
 
 <p>Did we miss a space? Did a new one open?</p>
 
-<p>Just a name and city should be fine. We'll do the rest.</p>
+<p>Just tell us its name and the city. We'll do the rest.</p>
 
 <form action="{% url "spaces-new" %}" method="POST">
     {% csrf_token %}
     <ul>
-        {{ form.as_ul }}
+        {{ form.as_p }}
     </ul>
-    <input type="submit" value="Submit (Thank you!)" />
+    <input type="submit" class="btn btn-primary" value="Submit (Thank you!)" />
 </form>
 
 <a href="{% url "spaces-list" %}">Cancel</a>
+{% endblock %}
