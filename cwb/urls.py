@@ -17,8 +17,11 @@ urlpatterns = patterns('',
     # Uncomment the next line to enable the admin:
     url(r'^cwb-admin/', include(admin.site.urls)),
 
-    url(r'^$', spaces.views.ListSpaceView.as_view(),
-        name='spaces-list'),
+    url(r'^$', spaces.views.HomeView.as_view(),
+        name='spaces-home'),
+
+    url(r'^search$', spaces.views.ListSpaceView.as_view(),
+        name='spaces-search'),
 
     url(r'^new$', spaces.views.CreateSpaceView.as_view(),
         name='spaces-new'),
