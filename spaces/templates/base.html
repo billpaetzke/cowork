@@ -25,7 +25,10 @@
                 <div class="nav-collapse collapse">
                     <ul class="nav">
                         <li><a href="{% url "spaces-new" %}">Add a Space</a></li>
-                    </ul>
+                                           </ul>
+                    <form action="{% url "spaces-search" %}" method="GET" autocomplete="off" class="navbar-search pull-right">
+    <input name="q" autocomplete="off" tabindex="1" type="text" value="" placeholder="search locations" class="search-query" />
+</form>
                 </div><!--/.nav-collapse -->
             </div>
         </div>
