@@ -34,7 +34,6 @@ class Space(models.Model):
 
     def get_absolute_url(self):
 
-        print reverse('spaces-view', kwargs={'pk': self.id, 'slug': self.slug})
         return reverse('spaces-view', kwargs={'pk': self.id, 'slug': self.slug})
 
 # Note: I looked into inheritance (e.g. PendingSpace inherits Space)

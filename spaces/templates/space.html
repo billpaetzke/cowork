@@ -28,19 +28,23 @@
       google.maps.event.addDomListener(window, 'load', initialize);
     </script>
       
-    <h1>{{ space }}</h1>
+    <h3>{{ space }}</h3>
 
     {% if space.phone %}
-    Phone: {{ space.phone }}<br/>
+    <p><strong>Phone</strong><br />
+    {{ space.phone }}</p>
     {% endif %}
     {% if space.email %}
-    Email: <a href="mailto:{{ space.email }}">{{ space.email }}</a><br/>
+    <p><strong>Email</strong><br /> 
+    <a href="mailto:{{ space.email }}">{{ space.email }}</a></p>
     {% endif %}
     {% if space.url %}
-    Site: <a href="{{ space.url }}">{{ space.url }}</a><br/>
+    <p><strong>Website</strong><br/>
+    <a href="{{ space.url }}">{{ space.url }}</a></p>
     {% endif %}
 
-    <p>{{ space.address }}</p>
+    <p><strong>Address</strong></br>
+    {{ space.address }}</p>
 
     <div id="map-canvas"/>
 

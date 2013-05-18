@@ -20,12 +20,12 @@ urlpatterns = patterns('',
     url(r'^$', spaces.views.HomeView.as_view(),
         name='spaces-home'),
 
-    url(r'^search$', spaces.views.ListSpaceView.as_view(),
+    url(r'^spaces$', spaces.views.ListSpaceView.as_view(),
         name='spaces-search'),
 
     url(r'^new$', spaces.views.CreateSpaceView.as_view(),
         name='spaces-new'),
 
-    url(r'^(?P<slug>[-\w\d]+),(?P<pk>\d+)/$', spaces.views.SpaceView.as_view(),
+    url(r'^(?P<slug>[-\w\d]+)_(?P<pk>\d+)/$', spaces.views.SpaceView.as_view(),
         name='spaces-view'),
 )

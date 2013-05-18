@@ -8,12 +8,6 @@
 
 {% if object_list.count > 0 %}
 
-<ul>
-    {% for space in object_list %}
-    <li><a href="{{ space.get_absolute_url }}">{{ space }}</a></li>
-    {% endfor %}
-</ul>
-
 <div id="map-canvas"></div>
 
  <meta name="viewport" content="initial-scale=1.0, user-scalable=no" />
@@ -27,7 +21,7 @@
       function initialize() {
           var locations = [
           {% for space in object_list %}
-          ['{{ space.id }}', '{{ space }}', {{ space.lat }}, {{ space.lon }}],
+          ['{{ space.slug }}'+'_'+{{ space.id }}, '{{ space }}', {{ space.lat }}, {{ space.lon }}],
           {% endfor %}
               ];
         var mapOptions = {
@@ -57,6 +51,13 @@
     }
       google.maps.event.addDomListener(window, 'load', initialize);
     </script>
+
+<p>&nbsp;</p>
+<ul>
+    {% for space in object_list %}
+    <li><a href="{{ space.get_absolute_url }}">{{ space }}</a></li>
+    {% endfor %}
+</ul>
 
     {% else %}
 
