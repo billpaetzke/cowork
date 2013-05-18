@@ -11,7 +11,6 @@ import math # to calculate bounding box for a given latlng
 
 class ListSpaceView(ListView):
 
-    #model = Space # list all spaces in the db
     template_name = 'space_list.html'
 
     def get_queryset(self):

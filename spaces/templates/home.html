@@ -4,11 +4,36 @@
 
 {% block content %}
 
-<h1>Coworking Spaces</h1>
-
-<form action="{% url "spaces-search" %}" method="GET" autocomplete="off">
-    <input name="q" autocomplete="off" tabindex="1" type="text" placeholder="Los Angeles" value="" /> <input type="submit" value="Search" class="btn" />
-
+<div class="text-center">
+<h3>Find coworking spaces near</h3>
+<form action="{% url "spaces-search" %}" method="GET" autocomplete="off" class="form-search">
+    <input name="q" autocomplete="off" tabindex="1" type="text" value="" placeholder="Los Angeles" class="input-xlarge" />
+    <button type="submit" class="btn">Search</button>
 </form>
 
+<hr/>
+
+<div class="well row-fluid">
+    <div class="span4">
+        <h2>Americas</h2>
+        <p><a href="search?q=San+Francisco">San Francisco</a></p>
+        <p><a href="search?q=New+York+City">New York City</a></p>
+        <p><a href="search?q=Los+Angeles">Los Angeles</a></p>
+        <p><a href="search?q=Medellin">Medellín</a></p>
+    </div>
+    <div class="span4">
+      <h2>Europe</h2>
+        <p><a href="search?q=London">London</a></p>
+        <p><a href="search?q=Berlin">Berlin</a></p>
+        <p><a href="search?q=Amsterdam">Amsterdam</a></p>
+  </div>
+    <div class="span4">
+      <h2>Asia</h2>
+        <p><a href="search?q=Tokyo">Tokyo</a></p>
+        <p><a href="search?q=Hong+Kong">Hong Kong</a></p>
+        <p><a href="search?q=Bangkok">Bangkok</a></p>
+    </div>
+</div>
+
+</div>
 {% endblock %}

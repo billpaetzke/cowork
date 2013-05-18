@@ -23,6 +23,10 @@ class Space(models.Model):
             )
     lat = models.FloatField(default=0)
     lon = models.FloatField(default=0)
+    slug = models.CharField(
+            max_length=63,
+            blank=True,
+            )
 
     def __str__(self):
 
@@ -30,7 +34,8 @@ class Space(models.Model):
 
     def get_absolute_url(self):
 
-        return reverse('spaces-view', kwargs={'pk': self.id})
+        print reverse('spaces-view', kwargs={'pk': self.id, 'slug': self.slug})
+        return reverse('spaces-view', kwargs={'pk': self.id, 'slug': self.slug})
 
 # Note: I looked into inheritance (e.g. PendingSpace inherits Space)
 #       but it seemed too complex to handle in ORM at this point
