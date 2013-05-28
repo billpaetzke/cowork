@@ -16,7 +16,7 @@ class ListSpaceView(ListView):
     def get_queryset(self):
         loc =  self.request.GET.get('q')
         lat, lng =  get_lat_lng(loc)
-        radius_km = 100
+        radius_km = 32.19
         lng_max, lng_min, lat_max, lat_min = bounding_box(lat, lng, radius_km)
         spaces = Space.objects.filter(
             lat__lte=lat_max,
