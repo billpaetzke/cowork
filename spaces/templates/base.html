@@ -8,7 +8,15 @@
 
         <link href="{{ STATIC_URL }}css/bootstrap.min.css" rel="stylesheet" media="screen">
         <style>
-            body { padding-top: 60px; /* 60px to make the container go all the way to the bottom of the topbar */ }
+            body { padding-top: 40px; /* 60px to make the container go all the way to the bottom of the topbar */ }
+            .mobile-footer { display: none; }
+
+            @media (max-width: 767px) {
+                #add-space-btn { display: none; }
+                #search-box { float: left; }
+                .mobile-footer { display: block; }
+                .container { width: 100%; }
+            }
         </style>
     </head>
   <body>
@@ -23,11 +31,11 @@
                 </button>
                 <a class="brand active" href="{% url "spaces-home" %}">Coworking Spaces</a>
                 <div class="nav-collapse collapse">
-                    <ul class="nav">
+                    <ul id="add-space-btn" class="nav">
                         <li><a href="{% url "spaces-new" %}">Add a Space</a></li>
                                            </ul>
-                    <form action="{% url "spaces-search" %}" method="GET" autocomplete="off" class="navbar-search pull-right">
-    <input name="q" autocomplete="off" tabindex="1" type="text" value="" placeholder="search locations" class="search-query" />
+                    <form id="search-box" action="{% url "spaces-search" %}" method="GET" autocomplete="off" class="navbar-search pull-right">
+                        <input name="q" autocomplete="off" tabindex="1" type="text" value="{% block search_val %}{% endblock %}" placeholder="search locations" class="search-query" />
 </form>
                 </div><!--/.nav-collapse -->
             </div>
@@ -37,6 +45,10 @@
     <div class="container">
 
         {% block content %}{% endblock %}
+
+        <hr class="mobile-footer" />
+
+        <a class="mobile-footer" href="{% url "spaces-new" %}">Add a Space</a>
 
     </div> <!-- /container -->
 

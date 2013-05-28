@@ -6,34 +6,87 @@
 
 <div class="text-center">
 <h3>Find coworking spaces near</h3>
-<form action="{% url "spaces-search" %}" method="GET" autocomplete="off" class="form-search">
-    <input name="q" autocomplete="off" tabindex="1" type="text" value="" placeholder="Los Angeles" class="input-xlarge" />
+<form id="home-search-box" action="{% url "spaces-search" %}" method="GET" autocomplete="off" class="form-search">
+    <input name="q" autocomplete="off" tabindex="1" type="text" value="" placeholder="New York City" class="input-xlarge" />
     <button type="submit" class="btn">Search</button>
 </form>
 
 <hr/>
 
-<div class="well row-fluid">
+<div id="cities" class="well row-fluid">
     <div class="span4">
-        <h2>Americas</h2>
-        <p><a href="spaces?q=San+Francisco">San Francisco</a></p>
-        <p><a href="spaces?q=New+York+City">New York City</a></p>
+        <h3>United States</h3>
+        <p><a href="spaces?q=Austin">Austin</a></p>
+        <p><a href="spaces?q=Boston">Boston</a></p>
+        <p><a href="spaces?q=Boulder+CO">Boulder</a></p>
+        <p><a href="spaces?q=Chicago">Chicago</a></p>
+        <p><a href="spaces?q=Detroit">Detroit</a></p>
+        <p><a href="spaces?q=Denver">Denver</a></p>
         <p><a href="spaces?q=Los+Angeles">Los Angeles</a></p>
+        <p><a href="spaces?q=Miami">Miami</a></p>
+        <p><a href="spaces?q=New+York+City">New York City</a></p>
+        <p><a href="spaces?q=Philadelphia">Philadelphia</a></p>
+        <p><a href="spaces?q=Portland+OR">Portland</a></p>
+        <p><a href="spaces?q=San+Francisco">San Francisco</a></p>
+        <p><a href="spaces?q=Seattle">Seattle</a></p>
+        <p><a href="spaces?q=Washington+DC">Washington DC</a></p>
+        
+        <h3>Canada</h3>
+        <p><a href="spaces?q=Montreal+CA">Montreal</a></p>
+        <p><a href="spaces?q=Toronto">Toronto</a></p>
+        <p><a href="spaces?q=Vancouver+CA">Vancouver</a></p>
+        <p><a href="spaces?q=Waterloo+CA">Waterloo</a></p>
+
+        <h3>South America</h3>
+        <p><a href="spaces?q=Bogota">Bogotá</a></p>
         <p><a href="spaces?q=Buenos+Aires">Buenos Aires</a></p>
+        <p><a href="spaces?q=Medellin">Medellín</a></p>
+        <p><a href="spaces?q=Rio+de+Janeiro">Rio de Janeiro</a></p>
+        <p><a href="spaces?q=Sao+Paulo">São Paulo</a></p>
     </div>
     <div class="span4">
-        <h2>Europe</h2>
-        <p><a href="spaces?q=London">London</a></p>
-        <p><a href="spaces?q=Paris">Paris</a></p>
-        <p><a href="spaces?q=Berlin">Berlin</a></p>
+        <h3>Europe</h3>
         <p><a href="spaces?q=Amsterdam">Amsterdam</a></p>
-  </div>
+        <p><a href="spaces?q=Barcelona">Barcelona</a></p>
+        <p><a href="spaces?q=Berlin">Berlin</a></p>
+        <p><a href="spaces?q=Dublin">Dublin</a></p>
+        <p><a href="spaces?q=Hamburg">Hamburg</a></p>
+        <p><a href="spaces?q=Helinski">Helinski</a></p>
+        <p><a href="spaces?q=London">London</a></p>
+        <p><a href="spaces?q=Madrid">Madrid</a></p>
+        <p><a href="spaces?q=Milan">Milan</a></p>
+        <p><a href="spaces?q=Moscow">Moscow</a></p>
+        <p><a href="spaces?q=Munich">Munich</a></p>
+        <p><a href="spaces?q=Paris">Paris</a></p>
+        <p><a href="spaces?q=Stockholm">Stockholm</a></p>
+        <p><a href="spaces?q=Zurich">Zurich</a></p>
+        <p><a href="spaces?q=Vienna">Vienna</a></p>
+
+        <h3>Africa</h3>
+        <p><a href="spaces?q=Cairo">Cairo</a></p>
+        <p><a href="spaces?q=Cape+Town">Cape Town</a></p>
+        <p><a href="spaces?q=Johannesburg">Johannesburg</a></p>
+    </div>
     <div class="span4">
-      <h2>Asia</h2>
-        <p><a href="spaces?q=Tokyo">Tokyo</a></p>
-        <p><a href="spaces?q=Hong+Kong">Hong Kong</a></p>
+        <h3>Middle East</h3>
+        <p><a href="spaces?q=Istanbul">Istanbul</a></p>
+        <p><a href="spaces?q=Tel+Aviv">Tel Aviv</a></p>
+
+        <h3>India</h3>
+        <p><a href="spaces?q=Bangalore">Bangalore</a></p>
+        <p><a href="spaces?q=Mumbai">Mumbai</a></p>
+
+        <h3>Asia</h3>
         <p><a href="spaces?q=Bangkok">Bangkok</a></p>
+        <p><a href="spaces?q=Hong+Kong">Hong Kong</a></p>
+        <p><a href="spaces?q=Seoul">Seoul</a></p>
+        <p><a href="spaces?q=Shanghai">Shanghai</a></p>
         <p><a href="spaces?q=Singapore">Singapore</a></p>
+        <p><a href="spaces?q=Tokyo">Tokyo</a></p>
+
+        <h3>Australia</h3>
+        <p><a href="spaces?q=Melbourne">Melbourne</a></p>
+        <p><a href="spaces?q=Sydney">Sydney</a></p>
     </div>
 </div>
 
