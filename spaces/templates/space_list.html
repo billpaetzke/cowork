@@ -1,6 +1,20 @@
 {% extends "base.html" %}
 
 {% block title %}Coworking spaces near {{ loc }}{% endblock %}
+{% block page_style %}
+
+    {% if object_list.count > 0 %}
+    <style type="text/css">
+        #map-canvas { width: 100%; height: 400px }
+        @media (max-width: 767px) {
+            #map-canvas { height: 200px; }
+        }
+    </style>
+    {% endif %}
+
+{% endblock %}
+
+
 {% block search_val %}{{ loc }}{% endblock %}
 
 {% block content %}
@@ -9,30 +23,42 @@
 
 <div id="map-canvas"></div>
 
- <meta name="viewport" content="initial-scale=1.0, user-scalable=no" />
-    <style type="text/css">
-        #map-canvas { width: 100%; height: 400px }
-        @media (max-width: 767px) {
-            #map-canvas { height: 200px; }
-        }
-    </style>
-    <script type="text/javascript"
-        src="https://maps.googleapis.com/maps/api/js?key={{ gmaps_key }}&sensor=false">
-    </script>
-    <script type="text/javascript">
-      function initialize() {
-          var locations = [
-          {% for space in object_list %}
-          ['{{ space.slug }}'+'_'+{{ space.id }}, '{{ space }}', {{ space.lat }}, {{ space.lon }}],
-          {% endfor %}
-              ];
+<h3>Coworking Spaces near {{ loc }}</h3>
+<ul>
+    {% for space in object_list %}
+    <li><a href="{{ space.get_absolute_url }}">{{ space }}</a></li>
+    {% endfor %}
+</ul>
+
+    {% else %}
+
+    <p>Sorry, we don't know of any spaces near {{ loc }}.</p> 
+    
+    <p>Are we missing one? Please <a href="{% url "spaces-new" %}">add it</a> :)</p>
+
+    {% endif %}
+
+{% endblock %}
+
+{% block js_init %}
+
+<script type="text/javascript" src="https://maps.googleapis.com/maps/api/js?key={{ gmaps_key }}&sensor=false">
+</script>
+
+<script type="text/javascript">
+
+    function initialize() {
+        var locations = [
+            {% for space in object_list %}
+            ['{{ space.slug }}_{{ space.id }}', '{{ space }}', {{ space.lat }}, {{ space.lon }}],
+            {% endfor %}
+            ];
         var mapOptions = {
-          center: new google.maps.LatLng(0, 0),
-          zoom: 10,
-          mapTypeId: google.maps.MapTypeId.ROADMAP
+            center: new google.maps.LatLng(0, 0),
+            zoom: 10,
+            mapTypeId: google.maps.MapTypeId.ROADMAP
         };
-        var map = new google.maps.Map(document.getElementById("map-canvas"),
-                mapOptions);
+        var map = new google.maps.Map(document.getElementById("map-canvas"), mapOptions);
 
         var bounds = new google.maps.LatLngBounds();
         for (var i = 0; i < locations.length; i++)
@@ -51,24 +77,11 @@
         }
         map.fitBounds(bounds);
     }
-      google.maps.event.addDomListener(window, 'load', initialize);
-    </script>
-
-<h3>Coworking Spaces near {{ loc }}</h3>
-<ul>
-    {% for space in object_list %}
-    <li><a href="{{ space.get_absolute_url }}">{{ space }}</a></li>
-    {% endfor %}
-</ul>
-
-    {% else %}
-
-    <p>Sorry, we don't know of any spaces near {{ loc }}.</p> 
-    
-    <p>Are we missing one? Please <a href="{% url "spaces-new" %}">add it</a> :)</p>
-
-    {% endif %}
 
 
+    $(document).ready(function() {
+        google.maps.event.addDomListener(window, 'load', initialize);        
+    });
+</script>
 
 {% endblock %}
