@@ -4,6 +4,7 @@
 {% block page_style %}
     <style type="text/css">
         #map-canvas { width: 300px; height: 300px }
+        #map-canvas img { max-width: none; } /* http://stackoverflow.com/a/7623351/192210 */
         @media (max-width: 767px) {
             #map-canvas { width: 100%; height: 200px; }
             #text-info { padding-left: 10px; }
