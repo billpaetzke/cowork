@@ -30,6 +30,7 @@ class ListSpaceView(ListView):
 
         context = super(ListSpaceView, self).get_context_data(**kwargs)
         context['loc'] = self.request.GET.get('q')
+        context['gmaps_key'] = settings.GOOGLE_MAPS_API_KEY
 
         return context
 
