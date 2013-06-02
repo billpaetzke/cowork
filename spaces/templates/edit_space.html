@@ -2,7 +2,7 @@
 {% block title %}Add a Space{% endblock %}
 
 {% block content %}
-<h1>Tell us about a Coworking Space</h1>
+<h3>Tell us about a Coworking Space</h3>
 
 <p>Did we miss a space? Did a new one open?</p>
 
@@ -13,7 +13,7 @@
     <ul>
         {{ form.as_p }}
     </ul>
-    <input type="submit" class="btn btn-primary" value="Submit (Thank you!)" />
+    <input type="submit" class="btn btn-primary" value="Submit" />
 </form>
 
 <a href="{% url "spaces-home" %}">Cancel</a>
